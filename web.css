@@ -1,0 +1,216 @@
+/* ============================================================
+   DICE GOBLINZ — Big Boss's Orderz, on a screen
+   Same ink and paper as the printed sheet, but it reflows: one
+   column on a phone, the sheet's rail | procedure split on a wide
+   screen. Lines come from ink.css.
+   ============================================================ */
+
+:root {
+  --paper: #fff;
+  --ink: #1d1b16;
+  --blood: #7d2418;
+  --wash: rgba(0, 0, 0, 0.045);
+  --wash-strong: rgba(0, 0, 0, 0.075);
+  --desk: #2b2b2b;
+
+  --font-head: "Rock Salt";
+  --font-body: "Fuzzy Bubbles";
+
+  --gutter: 1rem;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  background: var(--desk);
+  color: var(--ink);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+body { margin: 0; }
+
+svg.defs { position: absolute; width: 0; height: 0; }
+
+/* ---------- the sheet ---------- */
+.sheet {
+  position: relative;
+  max-width: 72rem;
+  min-height: 100dvh;
+  margin: 0 auto;
+  padding: 1.6rem var(--gutter) 2.5rem;
+  background: var(--paper);
+  font-family: var(--font-body), "Comic Sans MS", cursive;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+.paper-grain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: #fff;
+  filter: url(#grain);
+  opacity: 0.11;
+  mix-blend-mode: multiply;
+}
+.sheet > :not(.paper-grain) { position: relative; }
+
+/* ---------- masthead ---------- */
+.masthead {
+  container-type: inline-size;
+  padding-bottom: 0.9rem;
+  margin-bottom: 1.1rem;
+}
+.wordmark {
+  margin: 0;
+  font-family: var(--font-head), cursive;
+  /* The wordmark is about 10.8em wide: this fills the masthead. */
+  --wordmark-share: 100cqi;
+  font-size: min(4.4rem, var(--wordmark-share) / 10.8);
+  font-weight: 800;
+  line-height: 1.1;
+  /* Rock Salt runs its letters together — without this, GOBLINZ reads
+     as GOBUNZ. */
+  letter-spacing: 0.055em;
+  transform: rotate(-1.1deg);
+  transform-origin: left bottom;
+}
+
+/* ---------- set-up text ---------- */
+.intro p { margin: 0 0 0.6rem; }
+.flavor { font-style: italic; }
+.needs { transform: rotate(-0.35deg); }
+.rollup {
+  font-weight: 700;
+  transform: rotate(-0.6deg);
+  transform-origin: left;
+}
+.die { color: var(--blood); font-weight: 700; }
+
+/* ---------- headings ---------- */
+.zone {
+  position: relative;
+  font-family: var(--font-head), cursive;
+  margin: 1.6rem 0 0.6rem;
+  padding-bottom: 0.45rem;
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 1.2;
+  transform: rotate(-0.25deg);
+}
+
+/* ---------- tables ---------- */
+.tbl-wrap { position: relative; }
+.tbl {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  line-height: 1.35;
+}
+.tbl th {
+  text-align: left;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.45rem 0.5rem 0.6rem;
+}
+.tbl td {
+  padding: 0.4rem 0.5rem;
+  vertical-align: top;
+}
+.tbl tbody tr:nth-child(odd) { background-color: var(--wash); }
+
+.c-roll { width: 3rem; text-align: center; white-space: nowrap; font-weight: 700; color: var(--blood); }
+.tbl td.c-roll { font-size: 1.05rem; }
+.tbl th.c-roll { text-align: center; }
+.c-name { font-weight: 700; }
+.c-dice { text-align: center; white-space: nowrap; font-weight: 700; }
+.nowt td { font-style: italic; }
+
+/* ---------- procedure ---------- */
+.steps p { margin: 0 0 0.8rem; }
+.bullets {
+  margin: 0 0 0.8rem;
+  padding-left: 1.3rem;
+  list-style: none;
+}
+.bullets li { margin-bottom: 0.35rem; }
+.bullets li::before {
+  content: "";
+  display: inline-block;
+  width: 0.42rem;
+  height: 0.42rem;
+  margin: 0 0.4rem 0 -0.82rem;
+  background: var(--ink);
+  border-radius: 62% 38% 55% 45% / 45% 55% 45% 55%;
+  vertical-align: 0.12rem;
+}
+
+.win {
+  position: relative;
+  font-family: var(--font-head), cursive;
+  margin: 1.6rem 0.4rem 0.5rem 0;
+  padding: 0.7rem 0.9rem;
+  font-size: 1.05rem;
+  line-height: 1.55;
+  background-color: var(--wash-strong);
+  transform: rotate(-1.2deg);
+  transform-origin: left center;
+}
+
+/* ---------- phone: table rows become little cards ----------
+   The columns won't fit side by side, so each row keeps its roll down
+   the left, its name – dice on the first line, and lets the long text
+   run full width beneath. The header row goes; the cards speak for
+   themselves. */
+@media (width < 36rem) {
+  .tbl, .tbl tbody { display: block; }
+  .tbl thead { display: none; }
+  .tbl tr {
+    display: grid;
+    grid-template-columns: 2.6rem auto 1fr;
+  }
+  .doohickeyz tr { grid-template-columns: 3.4rem 1fr; }
+  .tbl .c-roll { grid-row: span 2; width: auto; }
+  .tbl td:last-child { grid-column: 2 / -1; padding-top: 0; }
+  .tbl td.c-name { padding-bottom: 0.15rem; }
+  .goblinz td.c-name { padding-right: 0; }
+  .goblinz td.c-dice { text-align: left; }
+  .goblinz td.c-dice::before {
+    content: "\2013\00a0";
+    content: "\2013\00a0" / "";
+  }
+  /* Only the roll column keeps its rule; the rest share a line. */
+  .tbl.tbl :is(.c-name, .c-dice) { background: none; }
+  .nowt td:empty { display: none; }
+}
+
+/* ---------- tablet: two-column set-up text ---------- */
+@media (width >= 36rem) {
+  :root { --gutter: 1.75rem; }
+  .intro { column-count: 2; column-gap: 1.5rem; }
+  .intro p { break-inside: avoid; }
+  .c-name { width: 9rem; }
+  .c-dice { width: 6.5rem; }
+  .doohickeyz .c-name { width: 12rem; }
+}
+
+/* ---------- wide: the sheet's own split ---------- */
+@media (width >= 64rem) {
+  html { padding: 1.5rem 0; }
+  .sheet { min-height: 0; padding: 2rem 2.25rem 2.5rem; }
+  .wordmark { --wordmark-share: 40cqi; }
+
+  .body {
+    display: grid;
+    grid-template-columns: minmax(0, 0.82fr) minmax(0, 1fr);
+    grid-template-rows: auto 1fr;
+    gap: 0.5rem 2.25rem;
+  }
+  .intro { grid-column: 2; grid-row: 1; }
+  .rail { grid-column: 1; grid-row: 1 / span 2; }
+  .proc { grid-column: 2; grid-row: 2; }
+  .rail > .zone:first-child { margin-top: 0; }
+  .tbl { font-size: 0.9rem; }
+  .c-name { width: 6.5rem; }
+  .c-dice { width: 5.25rem; }
+  .doohickeyz .c-name { width: 8.5rem; }
+}

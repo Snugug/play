@@ -1,7 +1,6 @@
 /* ============================================================
-   DICE GOBLINZ — Big Boss's Orderz
-   One landscape US Letter sheet. What you see is what prints.
-   Every line on the page is drawn by ink.js with Rough.js;
+   DICE GOBLINZ — Big Boss's Orderz, print
+   One landscape US Letter sheet. Lines come from ink.css;
    there are no CSS borders anywhere below.
    ============================================================ */
 
@@ -24,19 +23,7 @@
 html, body {
   margin: 0;
   padding: 0;
-  background: #2b2b2b;
-}
-
-/* The sheet is a fixed 11in wide and never reflows — what you read is what
-   prints. On a narrower screen the whole sheet scales down to fit instead.
-   --fit is set by ink.js; the stage reserves the scaled height so the page
-   doesn't grow a phantom scrollbar. */
-.stage {
-  --fit: 1;
-  display: flex;
-  justify-content: center;
-  padding: 0.25in 0;
-  height: calc((8.5in * var(--fit)) + 0.5in);
+  background: #fff;
 }
 
 svg.defs { position: absolute; width: 0; height: 0; }
@@ -47,9 +34,6 @@ svg.defs { position: absolute; width: 0; height: 0; }
   width: 11in;
   height: 8.5in;
   overflow: hidden;
-  flex: 0 0 auto;
-  transform: scale(var(--fit, 1));
-  transform-origin: top center;
   padding: 0.3in 0.34in 0.26in;
   display: flex;
   flex-direction: column;
@@ -115,12 +99,16 @@ svg.defs { position: absolute; width: 0; height: 0; }
 .body {
   display: grid;
   grid-template-columns: 4.5in 1fr;
-  gap: 0.24in;
+  grid-template-rows: auto 1fr;
+  gap: 0.08in 0.24in;
   flex: 1;
   min-height: 0;
 }
-.rail { min-width: 0; }
-.proc { min-width: 0; display: flex; flex-direction: column; }
+/* The set-up text sits over the procedure, in two columns, leaving the
+   masthead free for art. */
+.intro { grid-column: 2; grid-row: 1; column-count: 2; column-gap: 0.2in; }
+.rail { min-width: 0; grid-column: 1; grid-row: 1 / span 2; }
+.proc { min-width: 0; grid-column: 2; grid-row: 2; display: flex; flex-direction: column; }
 
 .zone {
   position: relative;
@@ -193,7 +181,7 @@ svg.defs { position: absolute; width: 0; height: 0; }
 .win {
   position: relative;
   font-family: var(--font-head), cursive;
-  margin: 0.17in 0 0;
+  margin: 0.08in 0 0;
   padding: 0.09in 0.11in;
   font-size: 9.2pt;
   font-weight: 400;
@@ -203,28 +191,11 @@ svg.defs { position: absolute; width: 0; height: 0; }
   transform-origin: left center;
 }
 
-/* ---------- Rough.js ink layer ----------
-   One <svg> per inked element, absolutely positioned so it never takes part
-   in layout and inherits any rotation its parent carries. */
-svg.ink {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: visible;
-  pointer-events: none;
-}
-
 /* ---------- print ---------- */
 @page { size: letter landscape; margin: 0; }
 
-@media print {
-  html, body { background: #fff; }
-  .stage { display: block; padding: 0; height: auto; }
-  .sheet { transform: none; margin: 0; }
-  * {
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
+* {
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
 }
+

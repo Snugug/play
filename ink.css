@@ -1,0 +1,47 @@
+/* ============================================================
+   Hand-inked rules. Every line on the page is one of the SVGs in
+   ink/, laid in with CSS so it follows the layout at any size and
+   inherits any tilt its element carries. No CSS borders, no script.
+   ============================================================ */
+
+/* A heavy rule under the masthead and each zone heading. */
+.masthead::after,
+.zone::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2.5px;
+  height: 8px;
+  background: url(ink/rule-short.svg) 0 0 / 100% 100% no-repeat;
+  pointer-events: none;
+}
+.masthead::after { background-image: url(ink/rule-heavy.svg); }
+
+/* Boxes: a rough rectangle nine-sliced so the corners keep their shape
+   and the sides stretch. The outset lands the line on the edge. */
+.tbl-wrap::after,
+.win::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 20px solid transparent;
+  border-image: url(ink/box.svg) 20 / 20px / 10px stretch;
+  pointer-events: none;
+}
+.win::after { border-image-source: url(ink/box-wide.svg); }
+
+/* Tables: a heavy rule under the header, a light one between rows,
+   and a light one down the right of every column but the last. */
+.tbl thead tr {
+  background: url(ink/rule-short.svg) 0 100% / 100% 8px no-repeat;
+}
+.tbl tbody tr:not(:last-child) {
+  background-image: url(ink/divider.svg);
+  background-position: 0 100%;
+  background-size: 100% 4px;
+  background-repeat: no-repeat;
+}
+.tbl :is(th, td):not(:last-child) {
+  background: url(ink/column.svg) 100% 0 / 4px 100% no-repeat;
+}
