@@ -125,8 +125,14 @@ svg.defs { position: absolute; width: 0; height: 0; }
 .tbl-wrap { position: relative; }
 .rail .tbl-wrap { margin-bottom: 0.08in; }
 
+/* Both tables share one grid: the roll columns line up, Goblin + Dice
+   is exactly as wide as Item, so Ability and Effect match too. */
 .tbl {
+  --w-roll: 0.36in;
+  --w-name: 0.82in;
+  --w-dice: 0.5in;
   width: 100%;
+  table-layout: fixed;
   border-collapse: collapse;
   font-size: 7.5pt;
   line-height: 1.17;
@@ -137,7 +143,7 @@ svg.defs { position: absolute; width: 0; height: 0; }
   font-weight: 700;
   padding: 0.05in 0.055in 0.075in;
 
-  &.c-roll {
+  &.c-roll, &.c-dice {
     text-align: center;
   }
 }
@@ -147,10 +153,10 @@ svg.defs { position: absolute; width: 0; height: 0; }
 }
 .tbl tbody tr:nth-child(odd) { background-color: var(--wash); }
 
-.c-roll { width: 0.36in; text-align: center; white-space: nowrap; font-size: 8.5pt; font-weight: 700; color: var(--blood); }
-.c-name { width: 0.82in; font-weight: 700; }
-.c-dice { width: 1px; text-align: center; white-space: nowrap; font-weight: 700; }
-.doohickeyz .c-name { width: 1.3in; }
+.c-roll { width: var(--w-roll); text-align: center; white-space: nowrap; font-size: 8.5pt; font-weight: 700; color: var(--blood); }
+.c-name { width: var(--w-name); font-weight: 700; }
+.c-dice { width: var(--w-dice); text-align: center; font-weight: 700; }
+.c-item { width: calc(var(--w-name) + var(--w-dice)); }
 .nowt td { font-style: italic; }
 
 /* ---------- procedure prose ---------- */
@@ -158,24 +164,14 @@ svg.defs { position: absolute; width: 0; height: 0; }
 .steps p { margin: 0 0 0.055in; font-size: 8.1pt; line-height: 1.32; }
 .lede { break-inside: avoid; }
 
-.bullets {
+.numbered {
   margin: 0 0 0.06in;
   padding-left: 0.17in;
-  list-style: none;
   font-size: 8.1pt;
   line-height: 1.32;
 }
-.bullets li { margin-bottom: 0.025in; }
-.bullets li::before {
-  content: "";
-  display: inline-block;
-  width: 0.055in;
-  height: 0.055in;
-  margin: 0 0.05in 0 -0.155in;
-  background: var(--ink);
-  border-radius: 62% 38% 55% 45% / 45% 55% 45% 55%;
-  vertical-align: 0.02in;
-}
+.numbered li { margin-bottom: 0.025in; }
+.numbered li::marker { color: var(--blood); font-weight: 700; }
 
 /* The closing line sits where the rules end, knocked off square. */
 .win {
@@ -190,6 +186,7 @@ svg.defs { position: absolute; width: 0; height: 0; }
   transform: rotate(-1.2deg);
   transform-origin: left center;
 }
+.win b { color: var(--blood); }
 
 /* ---------- print ---------- */
 @page { size: letter landscape; margin: 0; }
