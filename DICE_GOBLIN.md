@@ -1,133 +1,56 @@
-# DICE GOBLIN
-*A One-Page TTRPG About Greed, Glory, and Not Getting Eaten*
-*Designed for 3 to 6 players | Play time: 25–35 minutes*
+# DICE GOBLINZ
 
----
+Big Boss has sent you into the dungeon to clear out Those Pesky Adventurerzez. Scope the room, ambush the dopes, get da dice. Big Boss say whoever strongest and cleverererest don’t get eaten!
 
-> ### THE PITCH
-> **"Big Boss has sent you into the dungeon to clear out Those Pesky Adventurerzez. Scope the room, ambush the dopes, get big and strong. Big Boss says whoever strongest and cleverererest don’t get eaten!"**
 
----
+Dice Goblinz is game for up to 8 goblinz. To play you need friends (or enemies, goblinz don't judge), a thing to hide dice in, and **AS MANY DICE AS YOU CAN GET**.
 
-## 1. WHAT YOU NEED TO PLAY
-* **3 to 6 Players** (You are all Goblins).
-* **Two-Sided Tokens** (1 coin or token per player: **Heads = Group**, **Tails = Greed**).
-* **A Communal Dice Bag** stuffed with assorted polyhedral dice ($\text{d4, d6, d8, d10, d12, d20}$).
-* **Personal Dice**: Each goblin starts with a distinct starter set of polyhedrals based on their class.
+Start by rolling a d8 to determine what goblin you is.
 
-> **DICE = GOBLIN EXPERIENCE / MOJO**  
-> Dice represent your swagger, stamina, and renown. Gaining dice means leveling up and getting tough. Losing dice means getting bruised and humiliated. **If your dice pool ever reaches 0, you crash out!**
-
----
-
-## 2. GOBLIN CLASSES (Roll 1d6 or Pick)
-
-| 1d6 | Class | Starting Dice | Archetype | Signature Ability |
+### Goblinz
+| 1d8 | Class | Starting Dice | Signature Ability |
 | :---: | :--- | :---: | :--- | :--- |
-| **1** | **Robgoblin** | **4d4** | *Caltrop Hoarder* | **Sneaky Pocket**: After all dice are rolled, but *before* tokens are revealed, you may roll 1 extra d4 from your hand into your total. |
-| **2** | **Bobgoblin** | **3d6** | *Everyday Average* | **Dumb Luck**: Treat any die you rolled that shows a 1 or 2 as a **3**. |
-| **3** | **Slobgoblin** | **2d8, 1d4** | *Grime Scavenger* | **Stench of Greed**: If you chose Greed on a successful raid, subtract 1 from all rival Greed totals; you win all Greed ties. |
-| **4** | **Snobgoblin** | **2d10** | *Posh Arrogance* | **Refined Taste**: When surrendering a die on a loss, you may surrender a die of your choice from your hand instead of a rolled die. |
-| **5** | **Hobgoblin** | **1d12, 1d6** | *Heavy Enforcer* | **Bully**: When you win as top Greed, you steal **2 rolled dice** from the highest Group contributor instead of 1. |
-| **6** | **Blobgoblin** | **1d20** | *Unstable Slime* | **Mitosis**: When surrendering a die, you may permanently downgrade your die tier by 1 step ($\text{d20} \rightarrow \text{d12} \rightarrow \text{d10} \rightarrow \text{d6} \rightarrow \text{d4}$) instead of surrendering a die from your hand. |
+| **1** | **Robgoblin** | **4d4** | **Sneaky Pocketz**: After all dice are rolled, but **before** roles are revealed, you may roll 1 extra die from your hand and add it your total. |
+| **2** | **Bobgoblin** | **3d6** | **Dumb Luck**: You can treat any die you rolled that shows a 1 or 2 as a **3**. |
+| **3** | **Slobgoblin** | **2d8, 1d4** | **Stench of Greed**: If you're Greedy, on a successful raid, subtract 1 from all rival Greedy totals; you win all Greed ties. |
+| **4** | **Snobgoblin** | **2d10** | **Refined Taste**: When choosing a die to loose, you may choose one from your hand instead of a rolled die. |
+| **5** | **Hobgoblin** | **1d12, 1d6** | **Bully**: When you are da Greediest, steal **1 Raid Dice** from a goblin of your choice. |
+| **6** | **Blobgoblin** | **1d20** | **Mitosis**: When you respawn, you can do so immediately, but your starting die is reduced by 1 size. You can't do this if your starting die would be lower than 1d4. |
+| **7** | **Knobgoblin** | **1d10, 1d6** | **Flip-Flop**: After dice are rolled, but **before** roles are revealed, you may secretly change your role but you must loose one of your die into the Loot. |
+| **8** | **Mobgoblin** | **2d6, 1d4** | **Union Bonus**: If you're a Groupie and the Raid succeeds ($M \ge T$), draw **1 extra die** into the Loot before drafting. |
 
-### Optional: Garbage Fashion & Quirk (Roll 1d6)
-* **1:** Wears a dented tea kettle as a helmet; screams every time someone rolls an odd number.
-* **2:** Armed with a rusty fork; insists on licking every shiny die before rolling it.
-* **3:** Draped in a moth-eaten velvet curtain; speaks in a high-pitched, fake noble accent.
-* **4:** Glued broken glass to their kneecaps; communicates entirely in suspicious whispers.
-* **5:** Covered head-to-toe in dungeon grease; leaves slimy handprints on other players' dice.
-* **6:** Carries a dead rat named "Sir Reginald"; consults it before choosing Group or Greed.
+## Hunt for Adventurerzez
 
----
+Those Pesky Adventurerzez are spread out throughout the whole dungeon! You've gotta find them! Start da game by rolling **1d4** and add this to the number of goblinz at the table-this the number of raids you'll need to go on to clear da dungeon. Choose the goblin thats da bestest to go first-they da **Raid Leader** and gonna plan da **Raid**. Da next goblin to their right da next Raid Leader, and around the table. Da Raid Leader rolls to see what kindsa adventurerzez await da goblinz:
 
-## 3. DUNGEON SETUP & TURN ORDER
-1. **Dungeon Length**: Roll **$\text{Number of Goblins } (G) + 1d4$**. This is the total number of Dungeon Areas to clear (e.g., 4 goblins $+ 1d4 = 5 \text{ to } 8$ areas).
-2. **Raid Leader**: Turns rotate **clockwise**. The active player is the **Raid Leader**.
-   * The Leader names the room and describes the terrible ambush plan on the adventurers.
-   * The Leader rolls the area dice and breaks ties in Group drafting.
+* Roll **1d6** (difficulty), **1d4** (experience), and **1d10** (doohickey)
+* Add difficulty and experience together, and multiply the number of goblinz by 4. This your **Raid Success Indicator Number Thingie**. You beat dat number with your rolls, you beat da adventurerzez!
+* Randomly pick a number of die from da Pile-O-Die equal to da rolled experience plus half da goblinz. This da **Loot**
+* Check to see if da adventurerzez have a **Doohickey** with them. If they do, add it to da Loot
 
----
-
-## 4. PROCEDURAL AREA GENERATOR
-When entering a new area, the Raid Leader rolls **1d6 ($dA$), 1d4 ($dB$), and 1d10 ($dC$)**:
-
-1. **Threshold ($T$)**: 
-
-$$T = (G \times 4) + dA + dB$$
-
-2. **Loot Pot**: Blindly draw **$dB + \lceil G / 2 \rceil$ dice** from the communal dice bag.
-3. **Failure Penalty**: If the raid fails, every participant loses **$\lceil dA / 2 \rceil$ dice** (1 to 3 dice).
-4. **Adventurer Doohickey**: Check **$dC$** on the table below:
-
-### The Adventurer Doohickey Table (1d10)
-| 1d10 | Item | Origin | Single-Use Discard Effect |
+### Adventurer Doohickeyz
+| 1d10 | Item | Origin | Effect |
 | :---: | :--- | :---: | :--- |
-| **1 – 4** | **No Loot** | — | Just muddy boots, dry hardtack, and smelly socks. |
-| **5** | **Tinkerer's Grabby Hand** | Artificer | Discard on any Room Clear ($M \ge T$): You get first pick of the loot (dice or item) before anyone else drafts or claims the pot, regardless of which side won! |
-| **6** | **Wizard's Wand (Cracked)** | Wizard | Discard after rolling: Add **+4** to your personal rolled total. |
-| **7** | **Paladin's Shiny Shield** | Paladin | Discard when your side loses: Ignore a 1-die penalty. |
-| **8** | **Rogue's Smoke Bomb** | Rogue | Discard after tokens are revealed: Flip your token (Group $\leftrightarrow$ Greed). |
-| **9** | **Bard's Annoying Kazoo** | Bard | Discard before rolling: Force any one opponent to re-roll their highest die. |
-| **10** | **Cleric's Holy Water (Sour)** | Cleric | Discard: Revive a dead cousin immediately without skipping a round! |
+| **1 – 4** | **No Loot** | - |
+| **5** | **Tinkerer's Grabby Hand** | Discard da goblinz win a Raid: You get first pick of **Loot** regardless of your role! |
+| **6** | **Wizard's Broked Wand** | Discard to add **+4** to your Raid roll. |
+| **7** | **Paladin's Shiny Shield** | Discard da goblinz win but you loose to keep all your die. |
+| **8** | **Rogue's Skeleton Key** | Discard before setting up a Raid: the Raid die twice and keep either set! |
+| **9** | **Bard's Annoying Kazoo** | Discard after roles are revealed to force any goblin to reroll a die of your choice. |
+| **10** | **Cleric's Sour Water** | Discard to revive immediately! |
 
----
+Once the Raid is set, Goblinz if and how they wanna participate! They:
+* Decide their **Role**-are you gonna be **Greedy**, be a **Groupie**, or be a **Coward**. They hide a **d6** under their dice hider set to 1 for Greedy, 2 for Groupie, and 3 for Coward
+* Set a number of die from your **Pocket** into the **Raid Area**-these are your **Raid Die** you're going to roll with for da raid
 
-## 5. THE RAID SEQUENCE (GROUP VS. GREED)
+Then, da Raid Leader counts down, and everyone rolls their Raid Die! Then everyone reveals  All Coward die put in are removed, all Groupie die are added together, and all Greedy die are added together. If da Groupie total minus da Greedy total meets or beats the Raid Success Indicator Number Thingie, the raid was a success! If not, it was a failure!
 
-Every area raid is resolved in six steps:
+If there were no Greedy Goblinz and the raid was a success, all of the Groupie Goblinz divvy up the loot, starting with the Raid Leader, who then chooses da next goblin to pick, and the next, and da next, but no goblinz can get secondz until all goblinz got firstz. 
 
-1. **Commit Secret Token**: Every player secretly sets their token face-down (**Heads = Group**, **Tails = Greed**).
-2. **Wager Dice from Hand**: Each player chooses which dice from their hand to roll. *(Unrolled dice remain 100% safe in your hand).*
-3. **The Roll**: Everyone rolls their wagered dice **openly on the table**.
-4. **Pre-Reveal Triggers**: Robgoblin may trigger *Sneaky Pocket* to roll 1 extra d4 from their hand.
-5. **The Reveal**: All tokens are flipped simultaneously! Group and Greed are unmasked.
-6. **Calculate Net**:
+If there were Greedy Goblinz, you gotta see if Greed or da Group won out! Look at the total rolled by the highest Groupie Goblin and the highest Greedy Goblin: whoever had the highest total wins! If the Group wins, all Greedy goblinz add one of their Raid Die to the Loot, if Greed wins, all Groupies add one of their raid die to the Loot, then the **Greediest Goblin** (with the highest roll) takes ALL da loot!
 
-$$\text{Net } (M) = \sum \text{Group Rolls} - \sum \text{Greed Rolls}$$
+If the raid was a failure, all goblinz on da raid loose a number of die equal to half da raid difficulty, rounded up, starting with their raid die. These die go back into the Pile-O-Die.
 
----
+If you run out of die, you die! But don't worry, goblinz aren't expendable, you skip da next raid, and you'll be resurrected with all da doohickeyz you found and all your starting die (minus one for each death, minimum 1).
 
-## 6. RAID RESOLUTION & PAYOUT
-
-### CASE A: $\text{Net} < T$ (MUTUAL DISASTER!)
-The goblins were too greedy or botched the ambush. The adventurers beat you back!
-* **Penalty**: *Every participating player* (Group and Greed alike) loses **$\lceil dA / 2 \rceil$ dice** (1 to 3 dice).
-* **The Hand-Loss Rule**: You must surrender dice starting with the dice you rolled. Any remaining shortfall comes **directly out of unrolled dice in your hand**!
-* **Loot Lost**: The Loot Pot and any Doohickey are dumped back into the communal dice bag.
-
-### CASE B: $\text{Net} \ge T$ (THE AMBUSH SUCCEEDS!)
-The adventurers are squashed! Compare the **highest individual Greed total** ($P_{\text{greed\_max}}$) vs. the **highest individual Group total** ($P_{\text{group\_max}}$):
-
-#### 1. Greed Wins ($P_{\text{greed\_max}} > P_{\text{group\_max}}$)
-* **The Top Greed Player Takes Everything**:
-  * Claims the **entire Loot Pot** from the room.
-  * Takes **any Doohickey** present.
-  * Steals **1 rolled die** from each Group player.
-  * Steals **1 rolled die** from every losing Greed player.
-
-#### 2. Group Wins ($P_{\text{group\_max}} \ge P_{\text{greed\_max}}$)
-* **Group Drafts the Spoils**:
-  * Add the Loot Pot + 1 rolled die surrendered by *every* Greed player into the reward pool.
-  * Group players **draft dice in order of their personal rolled total** (highest total picks first, second-highest picks next, etc.).
-  * *Ties in Group*: Broken by the Raid Leader.
-  * If a Doohickey was present, the Raid Leader awards it to any Group member (or takes it).
-* **Greed Penalty**: All Greed players lose 1 rolled die to the pot.
-
----
-
-## 7. CRASHING OUT & COUSINS
-* **0 Dice = Dead Goblin**: When your last die is lost, you crash out.
-* **The Cousin Catch-Up**: You skip **exactly 1 area raid** while your cousin sprints through the dungeon corridors to catch up.
-* **Inheritance**: Your cousin inherits all Doohickies held by the dead goblin.
-* **Respawn Pool**: Your cousin rejoins with **Starting Dice $- 1\text{ die}$ (minimum 1 die)**.
-
----
-
-## 8. WINNING THE GAME (DON’T GET EATEN!)
-
-The adventure ends once all **$N$ Dungeon Areas** ($G + 1d4$) have been raided!
-
-* **The Winner**: The goblin with the **most total dice** in their personal hoard at the end of the adventure wins the game!
-* **Breaking Ties**: If tied for most dice, the goblin holding the single highest-tier polyhedral die in their hoard wins ($\text{d20} > \text{d12} > \text{d10} > \text{d8} > \text{d6} > \text{d4}$). If still tied, whoever holds the most Adventurer Doohickies wins.
-* **The Big Boss Verdict**: Big Boss crowns the winner as the new **Under-Boss**. **Big Boss eats everyone else!**
+Once all da raids are done, da winner is da goblin with da most die! The rest get eaten NOM NOM NOM!
