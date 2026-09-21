@@ -124,6 +124,8 @@ svg.defs { position: absolute; width: 0; height: 0; }
 /* ---------- tables ---------- */
 .tbl-wrap { position: relative; }
 .rail .tbl-wrap { margin-bottom: 0.08in; }
+/* Breathing room between the two tables. */
+.rail .tbl-wrap + .zone { margin-top: 0.17in; }
 
 /* Both tables share one grid: the roll columns line up, Goblin + Dice
    is exactly as wide as Item, so Ability and Effect match too. */

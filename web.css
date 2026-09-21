@@ -99,6 +99,8 @@ svg.defs { position: absolute; width: 0; height: 0; }
 
 /* ---------- tables ---------- */
 .tbl-wrap { position: relative; }
+/* Breathing room between the two tables. */
+.rail .tbl-wrap + .zone { margin-top: 2.75rem; }
 .tbl {
   width: 100%;
   table-layout: fixed;
