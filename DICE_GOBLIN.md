@@ -17,7 +17,7 @@ Start by rolling a d8 to determine what goblin you is.
 | **5** | **Hobgoblin** | **1d12, 1d6** | **Bully**: When you are da Greediest, steal **1 Raid Dice** from a goblin of your choice. |
 | **6** | **Blobgoblin** | **1d20** | **Mitosis**: When you respawn, you can do so immediately, but your starting die is reduced by 1 size. You can't do this if your starting die would be lower than 1d4. |
 | **7** | **Knobgoblin** | **1d10, 1d6** | **Flip-Flop**: After dice are rolled, but **before** roles are revealed, you may secretly change your role but you must loose one of your die into the Loot. |
-| **8** | **Mobgoblin** | **2d6, 1d4** | **Union Bonus**: If you're a Groupie and the Raid succeeds ($M \ge T$), draw **1 extra die** into the Loot before drafting. |
+| **8** | **Mobgoblin** | **2d6, 1d4** | **Union Bonus**: If you're a Groupie and the Raid succeeds, draw **1 extra die** into the Loot before drafting. |
 
 ## Hunt for Adventurerzez
 
