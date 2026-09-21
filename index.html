@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Dice Goblinz</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Da rules for Dice Goblinz, on one page you can print.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&family=Rock+Salt&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<svg class="defs" aria-hidden="true">
+  <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3"/><feColorMatrix type="saturate" values="0"/></filter>
+</svg>
+
+<div class="stage">
+<div class="sheet">
+  <div class="paper-grain" aria-hidden="true"></div>
+
+  <header class="masthead">
+    <div class="mast-left">
+      <h1 class="wordmark">DICE GOBLINZ</h1>
+    </div>
+    <div class="mast-right">
+      <p class="flavor">Big Boss has sent you into the dungeon to clear out Those Pesky Adventurerzez. Scope the room, ambush the dopes, get da dice. Big Boss say whoever strongest and cleverererest don&rsquo;t get eaten!</p>
+      <p class="needs">Dice Goblinz is game for up to 8 goblinz. To play you need friends (or enemies, goblinz don&rsquo;t judge), a thing to hide dice in, and <b>AS MANY DICE AS YOU CAN GET</b>.</p>
+      <p class="rollup">Start by rolling a <b class="die">d8</b> to determine what goblin you is.</p>
+    </div>
+  </header>
+
+  <div class="body">
+    <section class="rail">
+      <h2 class="zone">Goblinz</h2>
+      <div class="tbl-wrap">
+      <table class="tbl goblinz">
+        <thead><tr><th class="c-roll">1d8</th><th class="c-name">Class</th><th class="c-dice">Starting Dice</th><th>Signature Ability</th></tr></thead>
+        <tbody>
+          <tr><td class="c-roll">1</td><td class="c-name">Robgoblin</td><td class="c-dice">4d4</td><td><b>Sneaky Pocketz</b>: After all dice are rolled, but <b>before</b> roles are revealed, you may roll 1 extra die from your hand and add it your total.</td></tr>
+          <tr><td class="c-roll">2</td><td class="c-name">Bobgoblin</td><td class="c-dice">3d6</td><td><b>Dumb Luck</b>: You can treat any die you rolled that shows a 1 or 2 as a <b>3</b>.</td></tr>
+          <tr><td class="c-roll">3</td><td class="c-name">Slobgoblin</td><td class="c-dice">2d8, 1d4</td><td><b>Stench of Greed</b>: If you&rsquo;re Greedy, on a successful raid, subtract 1 from all rival Greedy totals; you win all Greed ties.</td></tr>
+          <tr><td class="c-roll">4</td><td class="c-name">Snobgoblin</td><td class="c-dice">2d10</td><td><b>Refined Taste</b>: When choosing a die to loose, you may choose one from your hand instead of a rolled die.</td></tr>
+          <tr><td class="c-roll">5</td><td class="c-name">Hobgoblin</td><td class="c-dice">1d12, 1d6</td><td><b>Bully</b>: When you are da Greediest, steal <b>1 Raid Dice</b> from a goblin of your choice.</td></tr>
+          <tr><td class="c-roll">6</td><td class="c-name">Blobgoblin</td><td class="c-dice">1d20</td><td><b>Mitosis</b>: When you respawn, you can do so immediately, but your starting die is reduced by 1 size. You can&rsquo;t do this if your starting die would be lower than 1d4.</td></tr>
+          <tr><td class="c-roll">7</td><td class="c-name">Knobgoblin</td><td class="c-dice">1d10, 1d6</td><td><b>Flip-Flop</b>: After dice are rolled, but <b>before</b> roles are revealed, you may secretly change your role but you must loose one of your die into the Loot.</td></tr>
+          <tr><td class="c-roll">8</td><td class="c-name">Mobgoblin</td><td class="c-dice">2d6, 1d4</td><td><b>Union Bonus</b>: If you&rsquo;re a Groupie and the Raid succeeds, draw <b>1 extra die</b> into the Loot before drafting.</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <h2 class="zone">Adventurer Doohickeyz</h2>
+      <div class="tbl-wrap">
+      <table class="tbl doohickeyz">
+        <thead><tr><th class="c-roll">1d10</th><th class="c-name">Item</th><th>Effect</th></tr></thead>
+        <tbody>
+          <tr class="nowt"><td class="c-roll">1 &ndash; 4</td><td class="c-name">No Loot</td><td></td></tr>
+          <tr><td class="c-roll">5</td><td class="c-name">Tinkerer&rsquo;s Grabby Hand</td><td>Discard da goblinz win a Raid: You get first pick of <b>Loot</b> regardless of your role!</td></tr>
+          <tr><td class="c-roll">6</td><td class="c-name">Wizard&rsquo;s Broked Wand</td><td>Discard to add <b>+4</b> to your Raid roll.</td></tr>
+          <tr><td class="c-roll">7</td><td class="c-name">Paladin&rsquo;s Shiny Shield</td><td>Discard da goblinz win but you loose to keep all your die.</td></tr>
+          <tr><td class="c-roll">8</td><td class="c-name">Rogue&rsquo;s Skeleton Key</td><td>Discard before setting up a Raid: the Raid die twice and keep either set!</td></tr>
+          <tr><td class="c-roll">9</td><td class="c-name">Bard&rsquo;s Annoying Kazoo</td><td>Discard after roles are revealed to force any goblin to reroll a die of your choice.</td></tr>
+          <tr><td class="c-roll">10</td><td class="c-name">Cleric&rsquo;s Sour Water</td><td>Discard to revive immediately!</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </section>
+
+    <section class="proc">
+      <h2 class="zone">Hunt for Adventurerzez</h2>
+      <div class="steps">
+        <p class="lede">Those Pesky Adventurerzez are spread out throughout the whole dungeon! You&rsquo;ve gotta find them! Start da game by rolling <b class="die">1d4</b> and add this to the number of goblinz at the table-this the number of raids you&rsquo;ll need to go on to clear da dungeon. Choose the goblin thats da bestest to go first-they da <b>Raid Leader</b> and gonna plan da <b>Raid</b>. Da next goblin to their right da next Raid Leader, and around the table. Da Raid Leader rolls to see what kindsa adventurerzez await da goblinz:</p>
+
+        <ul class="bullets">
+          <li>Roll <b class="die">1d6</b> (difficulty), <b class="die">1d4</b> (experience), and <b class="die">1d10</b> (doohickey)</li>
+          <li>Add difficulty and experience together, and multiply the number of goblinz by 4. This your <b>Raid Success Indicator Number Thingie</b>. You beat dat number with your rolls, you beat da adventurerzez!</li>
+          <li>Randomly pick a number of die from da Pile-O-Die equal to da rolled experience plus half da goblinz. This da <b>Loot</b></li>
+          <li>Check to see if da adventurerzez have a <b>Doohickey</b> with them. If they do, add it to da Loot</li>
+        </ul>
+
+        <p>Once the Raid is set, Goblinz if and how they wanna participate! They:</p>
+        <ul class="bullets">
+          <li>Decide their <b>Role</b>-are you gonna be <b>Greedy</b>, be a <b>Groupie</b>, or be a <b>Coward</b>. They hide a <b class="die">d6</b> under their dice hider set to 1 for Greedy, 2 for Groupie, and 3 for Coward</li>
+          <li>Set a number of die from your <b>Pocket</b> into the <b>Raid Area</b>-these are your <b>Raid Die</b> you&rsquo;re going to roll with for da raid</li>
+        </ul>
+
+        <p>Then, da Raid Leader counts down, and everyone rolls their Raid Die! Then everyone reveals  All Coward die put in are removed, all Groupie die are added together, and all Greedy die are added together. If da Groupie total minus da Greedy total meets or beats the Raid Success Indicator Number Thingie, the raid was a success! If not, it was a failure!</p>
+
+        <p>If there were no Greedy Goblinz and the raid was a success, all of the Groupie Goblinz divvy up the loot, starting with the Raid Leader, who then chooses da next goblin to pick, and the next, and da next, but no goblinz can get secondz until all goblinz got firstz.</p>
+
+        <p>If there were Greedy Goblinz, you gotta see if Greed or da Group won out! Look at the total rolled by the highest Groupie Goblin and the highest Greedy Goblin: whoever had the highest total wins! If the Group wins, all Greedy goblinz add one of their Raid Die to the Loot, if Greed wins, all Groupies add one of their raid die to the Loot, then the <b>Greediest Goblin</b> (with the highest roll) takes ALL da loot!</p>
+
+        <p>If the raid was a failure, all goblinz on da raid loose a number of die equal to half da raid difficulty, rounded up, starting with their raid die. These die go back into the Pile-O-Die.</p>
+
+        <p>If you run out of die, you die! But don&rsquo;t worry, goblinz aren&rsquo;t expendable, you skip da next raid, and you&rsquo;ll be resurrected with all da doohickeyz you found and all your starting die (minus one for each death, minimum 1).</p>
+      </div>
+
+      <p class="win">Once all da raids are done, da winner is da goblin with da most die! The rest get eaten <b>NOM NOM NOM!</b></p>
+    </section>
+  </div>
+</div>
+</div>
+
+<script src="rough.js"></script>
+<script src="ink.js"></script>
+</body>
+</html>

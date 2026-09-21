@@ -1,0 +1,230 @@
+/* ============================================================
+   DICE GOBLINZ — Big Boss's Orderz
+   One landscape US Letter sheet. What you see is what prints.
+   Every line on the page is drawn by ink.js with Rough.js;
+   there are no CSS borders anywhere below.
+   ============================================================ */
+
+:root {
+  --paper: #fff;
+  --ink: #1d1b16;
+  /* Contrast against white paper: ink 18.2:1, blood 9.8:1. */
+  --blood: #7d2418;
+
+  /* Backgrounds are greyscale: this sheet is made to be printed. */
+  --wash: rgba(0, 0, 0, 0.045);
+  --wash-strong: rgba(0, 0, 0, 0.075);
+
+  --font-head: "Rock Salt";
+  --font-body: "Fuzzy Bubbles";
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #2b2b2b;
+}
+
+/* The sheet is a fixed 11in wide and never reflows — what you read is what
+   prints. On a narrower screen the whole sheet scales down to fit instead.
+   --fit is set by ink.js; the stage reserves the scaled height so the page
+   doesn't grow a phantom scrollbar. */
+.stage {
+  --fit: 1;
+  display: flex;
+  justify-content: center;
+  padding: 0.25in 0;
+  height: calc((8.5in * var(--fit)) + 0.5in);
+}
+
+svg.defs { position: absolute; width: 0; height: 0; }
+
+/* ---------- the sheet ---------- */
+.sheet {
+  position: relative;
+  width: 11in;
+  height: 8.5in;
+  overflow: hidden;
+  flex: 0 0 auto;
+  transform: scale(var(--fit, 1));
+  transform-origin: top center;
+  padding: 0.3in 0.34in 0.26in;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  color: var(--ink);
+  font-family: var(--font-body), "Comic Sans MS", cursive;
+}
+.paper-grain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: #fff;
+  filter: url(#grain);
+  opacity: 0.11;
+  mix-blend-mode: multiply;
+}
+
+/* ---------- masthead ---------- */
+.masthead {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 4.2in;
+  align-items: center;
+  gap: 0.22in;
+  padding-bottom: 0.12in;
+  margin-bottom: 0.11in;
+}
+.wordmark {
+  margin: 0;
+  font-family: var(--font-head), cursive;
+  font-size: 37pt;
+  font-weight: 800;
+  line-height: 1;
+  white-space: nowrap;
+  /* Rock Salt runs its letters together — without this, GOBLINZ reads
+     as GOBUNZ. */
+  letter-spacing: 0.055em;
+  transform: rotate(-1.1deg);
+  transform-origin: left bottom;
+}
+.flavor {
+  margin: 0 0 0.06in;
+  font-size: 8.6pt;
+  font-style: italic;
+  line-height: 1.26;
+}
+.needs {
+  margin: 0;
+  font-size: 8.2pt;
+  line-height: 1.26;
+  transform: rotate(-0.35deg);
+}
+.rollup {
+  margin: 0.05in 0 0;
+  font-size: 8.9pt;
+  font-weight: 700;
+  transform: rotate(-0.6deg);
+  transform-origin: left;
+}
+.die { color: var(--blood); font-weight: 700; }
+
+/* ---------- body: reference rail | procedure ---------- */
+.body {
+  display: grid;
+  grid-template-columns: 4.5in 1fr;
+  gap: 0.24in;
+  flex: 1;
+  min-height: 0;
+}
+.rail { min-width: 0; }
+.proc { min-width: 0; display: flex; flex-direction: column; }
+
+.zone {
+  position: relative;
+  font-family: var(--font-head), cursive;
+  margin: 0 0 0.05in;
+  padding-bottom: 0.07in;
+  font-size: 11pt;
+  font-weight: 400;
+  line-height: 1.1;
+  transform: rotate(-0.25deg);
+}
+
+/* ---------- tables ---------- */
+.tbl-wrap { position: relative; }
+.rail .tbl-wrap { margin-bottom: 0.08in; }
+
+.tbl {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 7.5pt;
+  line-height: 1.17;
+}
+.tbl th {
+  text-align: left;
+  font-size: 6.9pt;
+  font-weight: 700;
+  padding: 0.05in 0.055in 0.075in;
+
+  &.c-roll {
+    text-align: center;
+  }
+}
+.tbl td {
+  padding: 0.034in 0.055in;
+  vertical-align: top;
+}
+.tbl tbody tr:nth-child(odd) { background-color: var(--wash); }
+
+.c-roll { width: 0.36in; text-align: center; white-space: nowrap; font-size: 8.5pt; font-weight: 700; color: var(--blood); }
+.c-name { width: 0.82in; font-weight: 700; }
+.c-dice { width: 0.62in; text-align: center; white-space: nowrap; font-weight: 700; }
+.doohickeyz .c-name { width: 1.3in; }
+.nowt td { font-style: italic; }
+
+/* ---------- procedure prose ---------- */
+.steps { column-count: 2; column-gap: 0.2in; }
+.steps p { margin: 0 0 0.055in; font-size: 8.1pt; line-height: 1.32; }
+.lede { break-inside: avoid; }
+
+.bullets {
+  margin: 0 0 0.06in;
+  padding-left: 0.17in;
+  list-style: none;
+  font-size: 8.1pt;
+  line-height: 1.32;
+}
+.bullets li { margin-bottom: 0.025in; }
+.bullets li::before {
+  content: "";
+  display: inline-block;
+  width: 0.055in;
+  height: 0.055in;
+  margin: 0 0.05in 0 -0.155in;
+  background: var(--ink);
+  border-radius: 62% 38% 55% 45% / 45% 55% 45% 55%;
+  vertical-align: 0.02in;
+}
+
+/* The closing line sits where the rules end, knocked off square. */
+.win {
+  position: relative;
+  font-family: var(--font-head), cursive;
+  margin: 0.17in 0 0;
+  padding: 0.09in 0.11in;
+  font-size: 9.2pt;
+  font-weight: 400;
+  line-height: 1.4;
+  background-color: var(--wash-strong);
+  transform: rotate(-1.2deg);
+  transform-origin: left center;
+}
+
+/* ---------- Rough.js ink layer ----------
+   One <svg> per inked element, absolutely positioned so it never takes part
+   in layout and inherits any rotation its parent carries. */
+svg.ink {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+/* ---------- print ---------- */
+@page { size: letter landscape; margin: 0; }
+
+@media print {
+  html, body { background: #fff; }
+  .stage { display: block; padding: 0; height: auto; }
+  .sheet { transform: none; margin: 0; }
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
