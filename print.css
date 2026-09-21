@@ -149,7 +149,7 @@ svg.defs { position: absolute; width: 0; height: 0; }
 
 .c-roll { width: 0.36in; text-align: center; white-space: nowrap; font-size: 8.5pt; font-weight: 700; color: var(--blood); }
 .c-name { width: 0.82in; font-weight: 700; }
-.c-dice { width: 0.62in; text-align: center; white-space: nowrap; font-weight: 700; }
+.c-dice { width: 1px; text-align: center; white-space: nowrap; font-weight: 700; }
 .doohickeyz .c-name { width: 1.3in; }
 .nowt td { font-style: italic; }
 

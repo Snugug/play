@@ -34,7 +34,7 @@ svg.defs { position: absolute; width: 0; height: 0; }
 /* ---------- the sheet ---------- */
 .sheet {
   position: relative;
-  max-width: 72rem;
+  max-width: 100rem;
   min-height: 100dvh;
   margin: 0 auto;
   padding: 1.6rem var(--gutter) 2.5rem;
@@ -122,7 +122,8 @@ svg.defs { position: absolute; width: 0; height: 0; }
 .tbl td.c-roll { font-size: 1.05rem; }
 .tbl th.c-roll { text-align: center; }
 .c-name { font-weight: 700; }
-.c-dice { text-align: center; white-space: nowrap; font-weight: 700; }
+/* The dice column hugs its widest roll; the ability gets the rest. */
+.c-dice { width: 1px; text-align: center; white-space: nowrap; font-weight: 700; }
 .nowt td { font-style: italic; }
 
 /* ---------- procedure ---------- */
@@ -180,7 +181,7 @@ svg.defs { position: absolute; width: 0; height: 0; }
   }
   /* Only the roll column keeps its rule; the rest share a line. */
   .tbl.tbl :is(.c-name, .c-dice) { background: none; }
-  .nowt td:empty { display: none; }
+  .tbl .nowt td.c-name { padding-top: 0.4rem; }
 }
 
 /* ---------- tablet: two-column set-up text ---------- */
@@ -189,7 +190,6 @@ svg.defs { position: absolute; width: 0; height: 0; }
   .intro { column-count: 2; column-gap: 1.5rem; }
   .intro p { break-inside: avoid; }
   .c-name { width: 9rem; }
-  .c-dice { width: 6.5rem; }
   .doohickeyz .c-name { width: 12rem; }
 }
 
@@ -210,7 +210,10 @@ svg.defs { position: absolute; width: 0; height: 0; }
   .proc { grid-column: 2; grid-row: 2; }
   .rail > .zone:first-child { margin-top: 0; }
   .tbl { font-size: 0.9rem; }
+  /* Like the printed sheet, the rules run in two columns once there's
+     room for two comfortable measures. */
+  .steps { columns: 2 17rem; column-gap: 2rem; }
+  .steps .lede { break-inside: avoid; }
   .c-name { width: 6.5rem; }
-  .c-dice { width: 5.25rem; }
   .doohickeyz .c-name { width: 8.5rem; }
 }

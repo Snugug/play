@@ -1,0 +1,26 @@
+/* Self-hosted type. The files are unmodified copies of the Google Fonts
+   releases; licences and credits are in fonts/README.md. */
+
+@font-face {
+  font-family: "Rock Salt";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(fonts/rock-salt/RockSalt-Regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Fuzzy Bubbles";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(fonts/fuzzy-bubbles/FuzzyBubbles-Regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Fuzzy Bubbles";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(fonts/fuzzy-bubbles/FuzzyBubbles-Bold.ttf) format("truetype");
+}

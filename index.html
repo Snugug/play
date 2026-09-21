@@ -5,9 +5,9 @@
 <title>Dice Goblinz</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Da rules for Dice Goblinz, on one page you can print.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&family=Rock+Salt&display=swap" rel="stylesheet">
+<link rel="preload" href="fonts/fuzzy-bubbles/FuzzyBubbles-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="fonts/rock-salt/RockSalt-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="fonts.css">
 <link rel="stylesheet" href="ink.css">
 <link rel="stylesheet" href="web.css" media="screen">
 <link rel="stylesheet" href="print.css" media="print">
@@ -35,7 +35,7 @@
       <h2 class="zone">Goblinz</h2>
       <div class="tbl-wrap">
       <table class="tbl goblinz">
-      <thead><tr><th class="c-roll">1d8</th><th class="c-name">Class</th><th class="c-dice">Starting Dice</th><th>Signature Ability</th></tr></thead>
+      <thead><tr><th class="c-roll">1d8</th><th class="c-name">Class</th><th class="c-dice">Dice</th><th>Ability</th></tr></thead>
       <tbody>
       <tr><td class="c-roll">1</td><td class="c-name">Robgoblin</td><td class="c-dice">4d4</td><td><b>Sneaky Pocketz</b>: After all dice are rolled, but <b>before</b> roles are revealed, you may roll 1 extra die from your hand and add it your total.</td></tr>
       <tr><td class="c-roll">2</td><td class="c-name">Bobgoblin</td><td class="c-dice">3d6</td><td><b>Dumb Luck</b>: You can treat any die you rolled that shows a 1 or 2 as a <b>3</b>.</td></tr>
@@ -54,7 +54,7 @@
       <table class="tbl doohickeyz">
       <thead><tr><th class="c-roll">1d10</th><th class="c-name">Item</th><th>Effect</th></tr></thead>
       <tbody>
-      <tr class="nowt"><td class="c-roll">1 &ndash; 4</td><td class="c-name">No Loot</td><td></td></tr>
+      <tr class="nowt"><td class="c-roll">1 &ndash; 4</td><td class="c-name" colspan="2">No Loot</td></tr>
       <tr><td class="c-roll">5</td><td class="c-name">Tinkerer&rsquo;s Grabby Hand</td><td>Discard da goblinz win a Raid: You get first pick of <b>Loot</b> regardless of your role!</td></tr>
       <tr><td class="c-roll">6</td><td class="c-name">Wizard&rsquo;s Broked Wand</td><td>Discard to add <b>+4</b> to your Raid roll.</td></tr>
       <tr><td class="c-roll">7</td><td class="c-name">Paladin&rsquo;s Shiny Shield</td><td>Discard da goblinz win but you loose to keep all your die.</td></tr>
