@@ -32,6 +32,11 @@
   box-sizing: border-box;
 }
 
+html {
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
 body {
   margin: 0;
   padding: 1.5rem 1rem;
@@ -62,7 +67,7 @@ body {
   position: relative;
   max-width: 8.5in;
   margin: 0 auto;
-  padding: 1.5rem;
+  padding: 0.3in;
   background-color: var(--parchment);
   background-image:
     radial-gradient(ellipse at 12% 18%, rgba(229, 204, 160, 0.45) 0%, transparent 45%),
@@ -73,7 +78,7 @@ body {
     linear-gradient(135deg, #f7f1e1 0%, #eedebd 50%, #e5cca0 100%);
   color: var(--ink);
   border: 2px solid var(--ink-border);
-  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+  border-radius: var(--hand-drawn-radius);
   box-shadow:
     0 12px 36px rgba(0, 0, 0, 0.6),
     inset 0 0 50px rgba(140, 95, 51, 0.25);
@@ -131,7 +136,7 @@ body {
   background: rgba(229, 204, 160, 0.3);
   border-left: 3px solid var(--ink-border);
   border-right: 3px solid var(--ink-border);
-  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+  border-radius: var(--hand-drawn-radius);
 }
 
 .overview {
@@ -149,7 +154,7 @@ body {
 .rule-card {
   background: rgba(247, 241, 225, 0.45);
   border: 2px solid var(--ink-border);
-  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+  border-radius: var(--hand-drawn-radius);
   padding: 0.65rem 0.85rem;
   margin-bottom: 0.8rem;
   box-shadow:
@@ -165,7 +170,7 @@ body {
   margin: 0 0 0.4rem 0;
   padding-bottom: 0.15rem;
   border-bottom: 2px solid var(--ink-secondary);
-  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+  border-radius: var(--hand-drawn-radius);
   display: inline-block;
   letter-spacing: 0.04em;
 }
@@ -196,7 +201,7 @@ body {
 .nom-callout {
   background: rgba(139, 38, 22, 0.08);
   border: 2px dashed var(--ink-crimson);
-  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+  border-radius: var(--hand-drawn-radius);
   text-align: center;
   padding: 0.6rem 0.85rem;
 }
@@ -221,7 +226,7 @@ body {
   border-spacing: 0;
   margin: 0.5rem 0;
   border: 2px solid var(--ink-border);
-  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+  border-radius: var(--hand-drawn-radius);
   overflow: hidden;
   background-color: rgba(247, 241, 225, 0.5);
   box-shadow: 1px 2px 4px var(--parchment-shadow);
@@ -311,8 +316,223 @@ strong {
 .ink-badge {
   display: inline-block;
   border: 1px solid var(--ink-crimson);
-  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+  border-radius: var(--hand-drawn-radius);
   padding: 0.1em 0.35em;
   color: var(--ink-crimson);
   font-weight: bold;
 }
+
+/* ==========================================================================
+   Two-Column Grid Layout
+   ========================================================================== */
+
+.two-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.25in;
+  align-items: start;
+}
+
+.col-left,
+.col-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.col-left > .rule-card:last-child,
+.col-right > .rule-card:last-child {
+  margin-bottom: 0;
+}
+
+/* Page break avoidance for print and multi-column flow */
+.rule-card,
+.hand-drawn-table,
+section {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+/* ==========================================================================
+   Responsive Reflow for Small Screens (< 800px)
+   ========================================================================== */
+
+@media screen and (max-width: 800px) {
+  body {
+    padding: 0.5rem;
+  }
+
+  .parchment-sheet {
+    max-width: 100%;
+    margin: 0;
+    padding: 0.75rem;
+    border-radius: 12px;
+  }
+
+  .two-columns {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .masthead h1 {
+    font-size: 2rem;
+  }
+
+  .flavor-quote,
+  .overview {
+    max-width: 100%;
+  }
+
+  .hand-drawn-table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* ==========================================================================
+   Print Stylesheet & 1-Page Budget (US Letter)
+   ========================================================================== */
+
+@page {
+  size: letter portrait;
+  margin: 0.3in;
+}
+
+@media print {
+  *, *::before, *::after {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  html, body {
+    background: none !important;
+    background-color: transparent !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 8.5pt !important;
+    line-height: 1.15 !important;
+    color: var(--ink) !important;
+    min-height: auto !important;
+  }
+
+  .parchment-sheet {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 10.4in !important;
+    max-height: 10.4in !important;
+    margin: 0 !important;
+    padding: 0.18in 0.25in !important;
+    box-shadow: none !important;
+    overflow: hidden !important;
+    break-after: avoid !important;
+    page-break-after: avoid !important;
+    border-width: 1.5px !important;
+  }
+
+  .parchment-sheet::before {
+    opacity: 0.2 !important;
+  }
+
+  .two-columns {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 0.2in !important;
+    align-items: start !important;
+  }
+
+  /* Micro-typography tuned for 1-page budget */
+  .masthead {
+    margin-bottom: 0.25rem !important;
+    padding-bottom: 0.2rem !important;
+  }
+
+  .masthead h1 {
+    font-size: 1.55rem !important;
+    margin: 0 0 0.1rem 0 !important;
+    letter-spacing: 0.05em !important;
+    line-height: 1.1 !important;
+  }
+
+  .flavor-quote {
+    font-size: 7.5pt !important;
+    line-height: 1.15 !important;
+    margin: 0 auto 0.2rem auto !important;
+    padding: 0.15rem 0.5rem !important;
+    max-width: 96% !important;
+  }
+
+  .overview {
+    font-size: 7.5pt !important;
+    line-height: 1.15 !important;
+    margin: 0 auto !important;
+    max-width: 96% !important;
+  }
+
+  .rule-card {
+    padding: 0.3rem 0.45rem !important;
+    margin-bottom: 0.25rem !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+    box-shadow: none !important;
+  }
+
+  .rule-card h2 {
+    font-size: 0.92rem !important;
+    margin: 0 0 0.15rem 0 !important;
+    padding-bottom: 0.08rem !important;
+    line-height: 1.1 !important;
+  }
+
+  .rule-card h3 {
+    font-size: 0.82rem !important;
+    margin: 0.2rem 0 0.1rem 0 !important;
+    line-height: 1.1 !important;
+  }
+
+  .rule-card p {
+    font-size: 7.8pt !important;
+    line-height: 1.15 !important;
+    margin: 0.12rem 0 !important;
+  }
+
+  .rule-card ul {
+    margin: 0.12rem 0 !important;
+    padding-left: 1rem !important;
+  }
+
+  .rule-card li {
+    font-size: 7.8pt !important;
+    line-height: 1.15 !important;
+    margin-bottom: 0.1rem !important;
+  }
+
+  .nom-callout {
+    padding: 0.25rem 0.45rem !important;
+  }
+
+  .hand-drawn-table {
+    margin: 0.2rem 0 !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+    box-shadow: none !important;
+  }
+
+  .hand-drawn-table th {
+    font-size: 7.5pt !important;
+    padding: 1.5px 3px !important;
+    letter-spacing: 0.02em !important;
+    line-height: 1.1 !important;
+  }
+
+  .hand-drawn-table td {
+    font-size: 7pt !important;
+    line-height: 1.12 !important;
+    padding: 1.5px 3px !important;
+  }
+
+  section {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+}
+
