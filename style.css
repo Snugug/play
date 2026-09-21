@@ -1,0 +1,318 @@
+/* ==========================================================================
+   Dice Goblinz - Hand-Scrawled Parchment Aesthetic & Hand-Drawn Tables
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&family=Patrick+Hand&display=swap');
+
+:root {
+  /* Parchment tones */
+  --parchment: #f7f1e1;
+  --parchment-light: #fcf9f2;
+  --parchment-mid: #eedebd;
+  --parchment-dark: #e5cca0;
+  --parchment-stain: #ddbf8e;
+  --parchment-edge: #8c5f33;
+  --parchment-shadow: rgba(74, 44, 19, 0.15);
+
+  /* Ink tones */
+  --ink: #231509;
+  --ink-secondary: #4a2c13;
+  --ink-border: #3a220f;
+  --ink-crimson: #8b2616;
+  --ink-green: #1a5e20;
+  --ink-gold: #a8782a;
+  --ink-faint: rgba(35, 21, 9, 0.08);
+  --ink-shading: rgba(74, 44, 19, 0.12);
+
+  /* Hand-drawn geometry */
+  --hand-drawn-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 1.5rem 1rem;
+  background-color: #18120e;
+  background-image:
+    radial-gradient(ellipse at center, #251b14 0%, #120d09 100%);
+  color: var(--ink);
+  font-family: 'Patrick Hand', 'Kalam', 'Caveat', cursive, sans-serif;
+  font-size: 15px;
+  line-height: 1.35;
+  min-height: 100vh;
+}
+
+/* Inline SVG filters hidden from rendering tree */
+.svg-filters {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   Parchment Sheet Surface
+   ========================================================================== */
+
+.parchment-sheet {
+  position: relative;
+  max-width: 8.5in;
+  margin: 0 auto;
+  padding: 1.5rem;
+  background-color: var(--parchment);
+  background-image:
+    radial-gradient(ellipse at 12% 18%, rgba(229, 204, 160, 0.45) 0%, transparent 45%),
+    radial-gradient(ellipse at 88% 12%, rgba(140, 95, 51, 0.22) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, rgba(221, 191, 142, 0.35) 0%, transparent 55%),
+    radial-gradient(ellipse at 92% 88%, rgba(140, 95, 51, 0.26) 0%, transparent 45%),
+    radial-gradient(ellipse at 8% 92%, rgba(229, 204, 160, 0.38) 0%, transparent 40%),
+    linear-gradient(135deg, #f7f1e1 0%, #eedebd 50%, #e5cca0 100%);
+  color: var(--ink);
+  border: 2px solid var(--ink-border);
+  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+  box-shadow:
+    0 12px 36px rgba(0, 0, 0, 0.6),
+    inset 0 0 50px rgba(140, 95, 51, 0.25);
+  overflow: hidden;
+}
+
+/* SVG paper grain filter overlay */
+.parchment-sheet::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  filter: url('#paper-texture');
+  opacity: 0.28;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.parchment-sheet > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ==========================================================================
+   Typography Hierarchy & Masthead
+   ========================================================================== */
+
+.masthead {
+  text-align: center;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px double var(--ink-border);
+}
+
+.masthead h1 {
+  font-family: 'MedievalSharp', 'Almendra', cursive, fantasy, sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--ink);
+  margin: 0 0 0.4rem 0;
+  text-shadow: 1px 1px 0 rgba(140, 95, 51, 0.35);
+  text-transform: uppercase;
+}
+
+.flavor-quote {
+  font-family: 'Patrick Hand', 'Caveat', cursive, sans-serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.35;
+  color: var(--ink-secondary);
+  max-width: 90%;
+  margin: 0 auto 0.6rem auto;
+  padding: 0.35rem 0.8rem;
+  background: rgba(229, 204, 160, 0.3);
+  border-left: 3px solid var(--ink-border);
+  border-right: 3px solid var(--ink-border);
+  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+}
+
+.overview {
+  font-size: 1rem;
+  line-height: 1.35;
+  max-width: 92%;
+  margin: 0 auto;
+  color: var(--ink);
+}
+
+/* ==========================================================================
+   Hand-Drawn Rule Cards & Section Headers
+   ========================================================================== */
+
+.rule-card {
+  background: rgba(247, 241, 225, 0.45);
+  border: 2px solid var(--ink-border);
+  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+  padding: 0.65rem 0.85rem;
+  margin-bottom: 0.8rem;
+  box-shadow:
+    1px 2px 4px var(--ink-shading),
+    inset 0 0 15px rgba(229, 204, 160, 0.2);
+}
+
+.rule-card h2 {
+  font-family: 'MedievalSharp', 'Almendra', cursive, fantasy, sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 0.4rem 0;
+  padding-bottom: 0.15rem;
+  border-bottom: 2px solid var(--ink-secondary);
+  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+  display: inline-block;
+  letter-spacing: 0.04em;
+}
+
+.rule-card h3 {
+  font-family: 'MedievalSharp', 'Almendra', cursive, fantasy, sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ink-secondary);
+  margin: 0.6rem 0 0.35rem 0;
+  letter-spacing: 0.03em;
+}
+
+.rule-card p {
+  margin: 0.35rem 0;
+}
+
+.rule-card ul {
+  margin: 0.35rem 0;
+  padding-left: 1.25rem;
+}
+
+.rule-card li {
+  margin-bottom: 0.3rem;
+}
+
+/* Thematic Callout Blocks */
+.nom-callout {
+  background: rgba(139, 38, 22, 0.08);
+  border: 2px dashed var(--ink-crimson);
+  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+  text-align: center;
+  padding: 0.6rem 0.85rem;
+}
+
+.nom-callout h2 {
+  color: var(--ink-crimson);
+  border-bottom-color: var(--ink-crimson);
+}
+
+.nom-callout strong {
+  color: var(--ink-crimson);
+  letter-spacing: 0.05em;
+}
+
+/* ==========================================================================
+   Hand-Drawn Table Aesthetics
+   ========================================================================== */
+
+.hand-drawn-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 0.5rem 0;
+  border: 2px solid var(--ink-border);
+  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+  overflow: hidden;
+  background-color: rgba(247, 241, 225, 0.5);
+  box-shadow: 1px 2px 4px var(--parchment-shadow);
+}
+
+.hand-drawn-table thead tr {
+  background:
+    repeating-linear-gradient(
+      45deg,
+      rgba(74, 44, 19, 0.04),
+      rgba(74, 44, 19, 0.04) 2px,
+      transparent 2px,
+      transparent 6px
+    ),
+    linear-gradient(to bottom, #ebd9b5 0%, #dfc79b 100%);
+}
+
+.hand-drawn-table th {
+  font-family: 'MedievalSharp', 'Almendra', cursive, fantasy, sans-serif;
+  font-weight: 700;
+  color: var(--ink);
+  text-align: left;
+  padding: 4px 6px;
+  border-bottom: 2px solid var(--ink-border);
+  border-right: 1px dashed rgba(74, 44, 19, 0.45);
+  font-size: 0.92rem;
+  letter-spacing: 0.03em;
+}
+
+.hand-drawn-table th:last-child {
+  border-right: none;
+}
+
+.hand-drawn-table td {
+  padding: 3px 6px;
+  border-bottom: 1px dashed rgba(74, 44, 19, 0.3);
+  border-right: 1px dashed rgba(74, 44, 19, 0.25);
+  font-size: 0.88rem;
+  line-height: 1.22;
+  color: var(--ink);
+  vertical-align: top;
+}
+
+.hand-drawn-table td:last-child {
+  border-right: none;
+}
+
+.hand-drawn-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Uneven cell shading & hand-tinting */
+.hand-drawn-table tbody tr:nth-child(even) {
+  background-color: rgba(229, 204, 160, 0.28);
+}
+
+.hand-drawn-table tbody tr:nth-child(odd) {
+  background-color: rgba(247, 241, 225, 0.35);
+}
+
+.hand-drawn-table tbody tr:hover {
+  background-color: rgba(221, 191, 142, 0.45);
+}
+
+/* Distinctive first-column roll styling */
+.hand-drawn-table td:first-child {
+  font-family: 'MedievalSharp', cursive, fantasy, sans-serif;
+  font-weight: 700;
+  text-align: center;
+  color: var(--ink-secondary);
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   Ink Stamps & Highlights
+   ========================================================================== */
+
+strong {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.ink-accent {
+  color: var(--ink-crimson);
+}
+
+.ink-badge {
+  display: inline-block;
+  border: 1px solid var(--ink-crimson);
+  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+  padding: 0.1em 0.35em;
+  color: var(--ink-crimson);
+  font-weight: bold;
+}
