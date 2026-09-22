@@ -102,7 +102,9 @@ svg.defs { position: absolute; width: 0; height: 0; }
 .body {
   display: grid;
   grid-template-columns: 4.5in 1fr;
-  grid-template-rows: auto 1fr;
+  /* Row 3 is the flexible one, so row 2 ends where the tables end and the
+     licence line sits right under them while the rules run on beside it. */
+  grid-template-rows: auto auto 1fr;
   gap: 0.08in 0.24in;
   flex: 1;
   min-height: 0;
@@ -111,7 +113,8 @@ svg.defs { position: absolute; width: 0; height: 0; }
    masthead free for art. */
 .intro { grid-column: 2; grid-row: 1; column-count: 2; column-gap: 0.2in; }
 .rail { min-width: 0; grid-column: 1; grid-row: 1 / span 2; }
-.proc { min-width: 0; grid-column: 2; grid-row: 2; display: flex; flex-direction: column; }
+.legal { grid-column: 1; grid-row: 3; align-self: start; }
+.proc { min-width: 0; grid-column: 2; grid-row: 2 / span 2; display: flex; flex-direction: column; }
 
 .zone {
   position: relative;
@@ -192,6 +195,12 @@ svg.defs { position: absolute; width: 0; height: 0; }
   transform-origin: left center;
 }
 .win b { color: var(--blood); }
+
+/* ---------- licence ---------- */
+.legal p { margin: 0; font-size: 6.8pt; line-height: 1.3; }
+.legal a { color: inherit; text-decoration: none; }
+/* Paper can't be clicked, and the licence needs its address shown. */
+.legal a::after { content: " (" attr(href) ")"; }
 
 /* ---------- print ---------- */
 @page { size: letter landscape; margin: 0; }

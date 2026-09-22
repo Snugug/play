@@ -180,6 +180,15 @@ svg.defs { position: absolute; width: 0; height: 0; }
 }
 .win b { color: var(--blood); }
 
+/* ---------- licence ---------- */
+.legal {
+  margin-top: 2.5rem;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+.legal p { margin: 0; }
+.legal a { color: inherit; }
+
 /* ---------- phone: table rows become little cards ----------
    The columns won't fit side by side, so each row keeps its roll down
    the left, its name – dice on the first line, and lets the long text
@@ -224,12 +233,15 @@ svg.defs { position: absolute; width: 0; height: 0; }
   .body {
     display: grid;
     grid-template-columns: minmax(0, 0.82fr) minmax(0, 1fr);
-    grid-template-rows: auto 1fr;
+    /* Row 3 is the flexible one, so row 2 ends where the tables end and
+       the licence line sits right under them. */
+    grid-template-rows: auto auto 1fr;
     gap: 0.5rem 2.25rem;
   }
   .intro { grid-column: 2; grid-row: 1; }
   .rail { grid-column: 1; grid-row: 1 / span 2; }
-  .proc { grid-column: 2; grid-row: 2; }
+  .proc { grid-column: 2; grid-row: 2 / span 2; }
+  .legal { grid-column: 1; grid-row: 3; align-self: start; margin-top: 1.5rem; }
   .rail > .zone:first-child { margin-top: 0; }
   .tbl { font-size: 0.9rem; }
   /* Like the printed sheet, the rules run in two columns once there's
