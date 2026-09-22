@@ -8,16 +8,16 @@ Dice Goblinz is game for up to 8 goblinz. To play you need friends (or enemies, 
 Start by rolling a d8 to determine what goblin you is.
 
 ### Goblinz
-| 1d8 | Class | Starting Dice | Signature Ability |
-| :---: | :--- | :---: | :--- | :--- |
-| **1** | **Robgoblin** | **4d4** | **Sneaky Pocketz**: After all dice are rolled, but **before** roles are revealed, you may roll 1 extra die from your hand and add it your total. |
-| **2** | **Bobgoblin** | **3d6** | **Dumb Luck**: You can treat any die you rolled that shows a 1 or 2 as a **3**. |
-| **3** | **Slobgoblin** | **2d8, 1d4** | **Stench of Greed**: If you're Greedy, on a successful raid, subtract 1 from all rival Greedy totals; you win all Greed ties. |
-| **4** | **Snobgoblin** | **2d10** | **Refined Taste**: When choosing a die to loose, you may choose one from your hand instead of a rolled die. |
-| **5** | **Hobgoblin** | **1d12, 1d6** | **Bully**: When you are da Greediest, steal **1 Raid Dice** from a goblin of your choice. |
-| **6** | **Blobgoblin** | **1d20** | **Mitosis**: When you respawn, you can do so immediately, but your starting die is reduced by 1 size. You can't do this if your starting die would be lower than 1d4. |
-| **7** | **Knobgoblin** | **1d10, 1d6** | **Flip-Flop**: After dice are rolled, but **before** roles are revealed, you may secretly change your role but you must loose one of your die into the Loot. |
-| **8** | **Mobgoblin** | **2d6, 1d4** | **Union Bonus**: If you're a Groupie and the Raid succeeds, draw **1 extra die** into the Loot before drafting. |
+| 1d8 | Goblin | Dice | Ability |
+| :---: | :--- | :---: | :--- |
+| **1** | **Robgoblin** | **4d4** | **Sneaky Pocketz**: After all dice are rolled, but **before** Roles are revealed, can roll 1 extra dice from your hand and add it your Raid Dice. |
+| **2** | **Bobgoblin** | **3d6** | **Average**: Can treat all 1s and 2s you rolled as **3**, but also treat all 5+ as **4**. |
+| **3** | **Slobgoblin** | **2d8, 1d4** | **Stench of Greed**: If you're Greedy, can subtract 1 from all rolls, but win all ties. |
+| **4** | **Snobgoblin** | **2d10** | **Refined Taste**: When choosing a dice to loose, can choose one from your hand instead of a Raid Dice, but can't draft **d4s**. |
+| **5** | **Hobgoblin** | **1d12, 1d6** | **Bully**: When you are da Greediest, can steal **1 Raid Dice** from a goblin of your choice, but can never be a Coward! |
+| **6** | **Blobgoblin** | **1d20** | **Mitosis**: When you respawn, can do immediately, but reduced starting die 1 size. You can't do this if your starting die would be lower than 1d4. |
+| **7** | **Knobgoblin** | **1d10, 1d6** | **Flip-Flop**: After dice are rolled, but **before** Roles are revealed, can secretly change your Role but loose one of your die into the Loot. |
+| **8** | **Mobgoblin** | **2d6, 1d4** | **Union Bonus**: Draw **1 extra die** into the Loot before drafting, but if you Greedy, all other Greedy goblins get to Loot firsts (you get all da secondz)! |
 
 ## Hunt for Adventurerzez
 
@@ -29,15 +29,15 @@ Those Pesky Adventurerzez are spread out throughout the whole dungeon! You've go
 * Check to see if da adventurerzez have a **Doohickey** with them. If they do, add it to da Loot
 
 ### Adventurer Doohickeyz
-| 1d10 | Item | Origin | Effect |
-| :---: | :--- | :---: | :--- |
+| 1d10 | Item | Effect |
+| :---: | :--- | :--- |
 | **1 – 4** | **No Loot** | - |
-| **5** | **Tinkerer's Grabby Hand** | Discard da goblinz win a Raid: You get first pick of **Loot** regardless of your role! |
+| **5** | **Tinkerer's Grabby Hand** | Discard if da goblinz win a Raid: Get first pick of **Loot** before Roles are revealed! |
 | **6** | **Wizard's Broked Wand** | Discard to add **+4** to your Raid roll. |
-| **7** | **Paladin's Shiny Shield** | Discard da goblinz win but you loose to keep all your die. |
-| **8** | **Rogue's Skeleton Key** | Discard before setting up a Raid: the Raid die twice and keep either set! |
-| **9** | **Bard's Annoying Kazoo** | Discard after roles are revealed to force any goblin to reroll a die of your choice. |
-| **10** | **Cleric's Sour Water** | Discard to revive immediately! |
+| **7** | **Paladin's Shiny Shield** | Discard if da goblinz win but you loose to keep all your dice. |
+| **8** | **Rogue's Skeleton Key** | Discard before setting up a Raid: roll da Raid dice twice and keep either set! |
+| **9** | **Bard's Annoying Kazoo** | Discard after Roles are revealed to force any goblin to reroll a dice of your choice. |
+| **10** | **Cleric's Ouchy Water** | Discard to revive immediately! |
 
 Once the Raid is set, Goblinz if and how they wanna participate! They:
 * Decide their **Role**-are you gonna be **Greedy**, be a **Groupie**, or be a **Coward**. They hide a **d6** under their dice hider set to 1 for Greedy, 2 for Groupie, and 3 for Coward
@@ -53,4 +53,4 @@ If the raid was a failure, all goblinz on da raid loose a number of die equal to
 
 If you run out of die, you die! But don't worry, goblinz aren't expendable, you skip da next raid, and you'll be resurrected with all da doohickeyz you found and all your starting die (minus one for each death, minimum 1).
 
-Once all da raids are done, da winner is da goblin with da most die! The rest get eaten NOM NOM NOM!
+Once all da raids are done, da winner is da goblin with da most die! The rest get eaten **NOM NOM NOM!**
