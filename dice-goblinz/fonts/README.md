@@ -1,10 +1,5 @@
 # Fonts
 
-These fonts are served from this site rather than from Google Fonts. Each
-file is an unmodified copy, byte for byte, of the release in the
-[google/fonts](https://github.com/google/fonts) repository. Each font keeps
-its own license, which sits next to it in this folder.
-
 ## Rock Salt
 
 - Files: `rock-salt/RockSalt-Regular.ttf`
