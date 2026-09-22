@@ -6,7 +6,10 @@
    ============================================================ */
 
 :root {
-  --paper: #fff;
+  /* Pale parchment. */
+  --paper: #f7eedb;
+  --stain: 150 110 50;
+  --glow: 255 253 245;
   --ink: #1d1b16;
   --blood: #7d2418;
   --wash: rgba(0, 0, 0, 0.045);
@@ -20,8 +23,36 @@
 
 * { box-sizing: border-box; }
 
+/* The parchment texture, all CSS gradients. Two parts:
+   - Grain: rings far thinner than a pixel, drawn from two centres well
+     off the page. The browser can't draw them cleanly, and the leftover
+     interference reads as fine grain with faint fibres. The two centres
+     and spacings were picked so their interference never forms a swirl.
+   - Clouds: soft light and dark blotches, each fading to nothing before
+     the edge of its tile so there are no seams. The tile sizes are all
+     prime, so the layers never line up the same way twice. Small tiles
+     are the faintest and the strongest blotches get tiles bigger than a
+     screen, so no grid of blotches ever shows. */
 html {
-  background: var(--paper);
+  background-color: var(--paper);
+  background-image:
+    repeating-radial-gradient(circle at -1300px -900px, rgb(var(--stain) / 0.08) 0 0.00031px, transparent 0 0.00067px),
+    repeating-radial-gradient(circle at -2300px 2700px, rgb(var(--glow) / 0.30) 0 0.00037px, transparent 0 0.00079px),
+    radial-gradient(closest-side, rgb(var(--stain) / 0.025), rgb(var(--stain) / 0.01) 55%, transparent),
+    radial-gradient(closest-side, rgb(var(--glow) / 0.3), rgb(var(--glow) / 0.12) 55%, transparent),
+    radial-gradient(closest-side, rgb(var(--stain) / 0.045), rgb(var(--stain) / 0.018) 55%, transparent),
+    radial-gradient(closest-side, rgb(var(--glow) / 0.45), rgb(var(--glow) / 0.18) 55%, transparent),
+    radial-gradient(closest-side, rgb(var(--stain) / 0.06), rgb(var(--stain) / 0.024) 55%, transparent),
+    radial-gradient(closest-side, rgb(var(--glow) / 0.4), rgb(var(--glow) / 0.16) 55%, transparent),
+    radial-gradient(closest-side, rgb(var(--stain) / 0.05), rgb(var(--stain) / 0.02) 55%, transparent);
+  background-size:
+    auto, auto,
+    241px 223px, 337px 359px, 523px 467px, 787px 853px,
+    1123px 1051px, 1531px 1433px, 1999px 1847px;
+  background-position:
+    0 0, 0 0,
+    0 0, 131px 67px, 311px 199px, 97px 421px,
+    613px 283px, 1009px 757px, 409px 1201px;
   color: var(--ink);
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
@@ -37,21 +68,13 @@ svg.defs { position: absolute; width: 0; height: 0; }
   min-height: 100dvh;
   margin: 0 auto;
   padding: 1.6rem var(--gutter) 2.5rem;
-  background: var(--paper);
   font-family: var(--font-body), "Comic Sans MS", cursive;
   font-size: 1rem;
   line-height: 1.5;
 }
-.paper-grain {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: #fff;
-  filter: url(#grain);
-  opacity: 0.11;
-  mix-blend-mode: multiply;
-}
-.sheet > :not(.paper-grain) { position: relative; }
+/* On screen the parchment texture replaces the printed sheet's SVG grain. */
+.paper-grain { display: none; }
+.sheet > * { position: relative; }
 
 /* ---------- masthead ---------- */
 .masthead {
@@ -170,11 +193,13 @@ svg.defs { position: absolute; width: 0; height: 0; }
     grid-template-columns: 2.6rem auto 1fr;
   }
   .doohickeyz tr { grid-template-columns: 3.4rem 1fr; }
-  .tbl .c-roll { grid-row: span 2; width: auto; }
+  /* The desktop column widths don't apply to cards. */
+  .tbl :is(th, td) { width: auto; }
+  .tbl .c-roll { grid-row: span 2; }
   .tbl td:last-child { grid-column: 2 / -1; padding-top: 0; }
   .tbl td.c-name { padding-bottom: 0.15rem; }
-  .goblinz td.c-name { width: auto; padding-right: 0; }
-  .goblinz td.c-dice { width: auto; text-align: left; white-space: nowrap; }
+  .goblinz td.c-name { padding-right: 0; }
+  .goblinz td.c-dice { text-align: left; white-space: nowrap; }
   .goblinz td.c-dice::before {
     content: "\2013\00a0";
     content: "\2013\00a0" / "";
