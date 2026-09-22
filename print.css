@@ -34,7 +34,9 @@ svg.defs { position: absolute; width: 0; height: 0; }
   width: 11in;
   height: 8.5in;
   overflow: hidden;
-  padding: 0.3in 0.34in 0.26in;
+  /* Top and bottom are set so the white above the wordmark's ink matches
+     the white below the closing box. */
+  padding: 0.357in 0.34in 0.15in;
   display: flex;
   flex-direction: column;
   background: #fff;
@@ -58,7 +60,8 @@ svg.defs { position: absolute; width: 0; height: 0; }
   grid-template-columns: 1fr 4.2in;
   align-items: center;
   gap: 0.22in;
-  padding-bottom: 0.12in;
+  /* Rock Salt's tails hang well below the line box; this clears them. */
+  padding-bottom: 0.235in;
   margin-bottom: 0.11in;
 }
 .wordmark {
