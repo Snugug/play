@@ -113,7 +113,7 @@ svg.defs { position: absolute; width: 0; height: 0; }
    masthead free for art. */
 .intro { grid-column: 2; grid-row: 1; column-count: 2; column-gap: 0.2in; }
 .rail { min-width: 0; grid-column: 1; grid-row: 1 / span 2; }
-.legal { grid-column: 1; grid-row: 3; align-self: start; }
+.legal { grid-column: 1; grid-row: 3; align-self: end; }
 .proc { min-width: 0; grid-column: 2; grid-row: 2 / span 2; display: flex; flex-direction: column; }
 
 .zone {
