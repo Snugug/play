@@ -34,9 +34,10 @@ svg.defs { position: absolute; width: 0; height: 0; }
   width: 11in;
   height: 8.5in;
   overflow: hidden;
-  /* Top and bottom are set so the white above the wordmark's ink matches
-     the white below the closing box. */
-  padding: 0.357in 0.34in 0.15in;
+  /* Set so the white between the ink and the paper edge is 0.15in on all
+     four sides. Top is larger because the wordmark's letters rise well
+     above their line box. */
+  padding: 0.357in 0.168in 0.164in 0.174in;
   display: flex;
   flex-direction: column;
   background: #fff;
@@ -74,6 +75,8 @@ svg.defs { position: absolute; width: 0; height: 0; }
   /* Rock Salt runs its letters together — without this, GOBLINZ reads
      as GOBUNZ. */
   letter-spacing: 0.055em;
+  /* The D's stroke reaches left of the text box; pull it back to the margin. */
+  margin-left: 0.03in;
   transform: rotate(-1.1deg);
   transform-origin: left bottom;
 }
@@ -185,7 +188,8 @@ svg.defs { position: absolute; width: 0; height: 0; }
 .win {
   position: relative;
   font-family: var(--font-head), cursive;
-  margin: 0.08in 0 0;
+  /* Pinned to the foot of the column so it sits on the bottom margin. */
+  margin: auto 0 0;
   padding: 0.09in 0.11in;
   font-size: 9.2pt;
   font-weight: 400;
