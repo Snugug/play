@@ -39,7 +39,7 @@ svg.defs { position: absolute; width: 0; height: 0; }
      wordmark's tops, the header rule, the table boxes and the closing box.
      Top is larger because the wordmark's letters rise well above their
      line box. */
-  padding: 0.357in 0.144in 0.164in 0.165in;
+  padding: 0.337in 0.144in 0.164in 0.165in;
   display: flex;
   flex-direction: column;
   background: #fff;
@@ -57,47 +57,52 @@ svg.defs { position: absolute; width: 0; height: 0; }
 }
 
 /* ---------- masthead ---------- */
-/* Wordmark over the flavor text on the left, key art standing on the
+/* Wordmark over the set-up text on the left, key art standing on the
    header rule on the right. The art's width sets its height; it's picked
    so the art's top meets the top margin while the art is exactly as tall
-   as the wordmark and flavor text beside it. */
+   as the wordmark and set-up text beside it. */
 .masthead {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 2.77in;
+  grid-template-columns: minmax(0, 1fr) 3.3in;
   column-gap: 0.2in;
   padding-bottom: 0.08in;
   margin-bottom: 0.11in;
 }
-.masthead picture {
+.art {
   grid-column: 2;
   grid-row: 1 / span 2;
   align-self: end;
-  /* Up into the sheet's top padding to the margin, down onto the rule. */
-  margin: -0.207in 0 -0.08in;
-}
-.art {
   display: block;
   width: 100%;
   height: auto;
+  /* Standing on the rule, so the painted ground under the goblinz is
+     trimmed off. */
+  aspect-ratio: 1318 / 635;
+  object-fit: cover;
+  object-position: top;
+  /* Up into the sheet's top padding to the margin, down onto the rule. */
+  margin: -0.187in 0 -0.08in;
   mix-blend-mode: multiply;
 }
-.intro { display: contents; }
-/* The rest of the set-up text leads the rules column. It lives in the
-   header so the screen layouts can wrap it around the art; here it's
-   placed at the top of the rules, which make room for it. */
-.setup {
-  position: absolute;
-  top: calc(100% + 0.11in);
-  left: calc(4.55in + 0.24in);
-  right: 0;
+/* The set-up text in two columns under the wordmark: flavor | who can
+   play, with the d8 line under it. The flavor column is a touch narrower
+   so its lines run out to the gap, which then matches the rules'. */
+.intro {
+  grid-column: 1;
+  grid-row: 2;
+  display: grid;
+  grid-template-columns: 0.9fr 1fr;
+  column-gap: 0.12in;
+  /* Rock Salt's tails hang well below the line box; this clears them. */
+  margin-top: 0.2in;
 }
 /* The rule's ink starts a hair inside its box; reach it out to the margin. */
 .masthead::after { left: -0.02in; }
 .wordmark {
   margin: 0;
   font-family: var(--font-head), cursive;
-  font-size: 37pt;
+  font-size: 34pt;
   font-weight: 800;
   line-height: 1;
   white-space: nowrap;
@@ -110,11 +115,7 @@ svg.defs { position: absolute; width: 0; height: 0; }
   transform-origin: left bottom;
 }
 .flavor {
-  grid-column: 1;
-  /* Rock Salt's tails hang well below the line box; this clears them. */
-  margin: 0.235in 0 0;
-  /* About as wide as the wordmark over it. */
-  max-width: 6.2in;
+  margin: 0;
   font-size: 8.6pt;
   font-style: italic;
   line-height: 1.26;
@@ -137,9 +138,9 @@ svg.defs { position: absolute; width: 0; height: 0; }
 /* ---------- body: reference rail | procedure ---------- */
 .body {
   display: grid;
-  /* A touch wider than the rules need, so the tables are short enough to
-     fit under the taller masthead. */
-  grid-template-columns: 4.55in 1fr;
+  /* Wider than the rules need, so the tables are short enough to fit
+     under the taller masthead. */
+  grid-template-columns: 5in 1fr;
   /* Row 2 is the flexible one, so row 1 ends where the tables end and the
      licence line sits right under them while the rules run on beside it. */
   grid-template-rows: auto 1fr;
@@ -149,8 +150,7 @@ svg.defs { position: absolute; width: 0; height: 0; }
 }
 .rail { min-width: 0; grid-column: 1; grid-row: 1; }
 .legal { grid-column: 1; grid-row: 2; align-self: end; }
-/* The top padding is the room for the set-up text placed over it. */
-.proc { min-width: 0; grid-column: 2; grid-row: 1 / span 2; display: flex; flex-direction: column; padding-top: 0.58in; }
+.proc { min-width: 0; grid-column: 2; grid-row: 1 / span 2; display: flex; flex-direction: column; }
 
 .zone {
   position: relative;
