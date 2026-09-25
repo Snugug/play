@@ -97,7 +97,22 @@ svg.defs { position: absolute; width: 0; height: 0; }
   transform-origin: left bottom;
 }
 
+/* Key art: full width under the wordmark on a phone, never taller than
+   40% of the screen. */
+.masthead picture { display: block; }
+.art {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 40svh;
+  object-fit: contain;
+  margin: 0.75rem 0 1rem;
+  mix-blend-mode: multiply;
+}
+
 /* ---------- set-up text ---------- */
+/* A touch smaller than the rules, so the header stays compact. */
+.intro { font-size: 0.85rem; }
 .intro p { margin: 0 0 0.6rem; }
 .flavor { font-style: italic; }
 .needs { transform: rotate(-0.35deg); }
@@ -218,35 +233,109 @@ svg.defs { position: absolute; width: 0; height: 0; }
   .tbl .nowt td.c-name { padding-top: 0.4rem; }
 }
 
-/* ---------- tablet: two-column set-up text ---------- */
+/* ---------- tablet: set-up text wraps around the art ---------- */
 @media (width >= 36rem) {
   :root { --gutter: 1.75rem; }
-  .intro { column-count: 2; column-gap: 1.5rem; }
-  .intro p { break-inside: avoid; }
+}
+@media (36rem <= width < 58rem) {
+  /* The set-up text wraps around the goblinz themselves, not their box;
+     the outline is traced from the painting's left edge. The text always
+     runs longer than the art, so the header rule sits under the text. */
+  .masthead { display: flow-root; }
+  .masthead picture {
+    float: right;
+    /* On wider tablets the text runs shorter, so the art narrows to match. */
+    width: min(55%, calc(40rem - 39cqi));
+    margin-top: 1rem;
+    /* Only the goblinz count toward the header's height; the painted ground
+       under their feet (the bottom 8.8% of the art, 2.6% of the header's
+       width) can overhang. */
+    margin-bottom: -2.6%;
+    shape-outside: polygon(100% 0, 21.3% 1.6%, 20.6% 7.9%, 20.6% 14.3%, 13.8% 20.8%, 5.2% 27.2%, 0.7% 33.6%, 0.7% 39.9%, 2% 46.5%, 3.5% 52.8%, 5.4% 59.2%, 6.9% 65.6%, 9.6% 72%, 7.1% 78.5%, 4.2% 84.8%, 4.2% 91.2%, 100% 91.2%);
+    shape-margin: 0.75rem;
+  }
+  .art { max-height: none; margin: 0; }
+  .masthead .intro { margin-top: 1rem; }
 }
 
 /* ---------- wide: the sheet's own split ---------- */
 @media (width >= 64rem) {
   .sheet { min-height: 0; padding: 2rem 2.25rem 2.5rem; }
-  .wordmark { --wordmark-share: 40cqi; }
 
   .body {
     display: grid;
     grid-template-columns: minmax(0, 0.82fr) minmax(0, 1fr);
-    /* Row 3 is the flexible one, so row 2 ends where the tables end and
+    /* Row 2 is the flexible one, so row 1 ends where the tables end and
        the licence line sits right under them. */
-    grid-template-rows: auto auto 1fr;
+    grid-template-rows: auto 1fr;
     gap: 0.5rem 2.25rem;
   }
-  .intro { grid-column: 2; grid-row: 1; }
-  .rail { grid-column: 1; grid-row: 1 / span 2; }
-  .proc { grid-column: 2; grid-row: 2 / span 2; }
-  .legal { grid-column: 1; grid-row: 3; align-self: start; margin-top: 1.5rem; }
-  .rail > .zone:first-child { margin-top: 0; }
+  .rail { grid-column: 1; grid-row: 1; }
+  .proc { grid-column: 2; grid-row: 1 / span 2; }
+  .legal { grid-column: 1; grid-row: 2; align-self: start; margin-top: 1.5rem; }
+  .rail > .zone:first-child,
+  .proc > .zone:first-child { margin-top: 0; }
   .tbl { font-size: 0.9rem; }
   /* Like the printed sheet, the rules run in two columns once there's
      room for two comfortable measures. */
   .steps { columns: 2 17rem; column-gap: 2rem; }
   .steps .lede { break-inside: avoid; }
   .tbl { --w-roll: 2.75rem; --w-name: 6.5rem; --w-dice: 3.5rem; }
+}
+
+/* ---------- tablet+ and desktop: the art stands on the header rule ----------
+   The tight crop stands on the header rule beside the set-up text, sized
+   to be about as tall as the text beside it. */
+@media (width >= 58rem) {
+  /* The wordmark across the top; under it, the set-up text beside the art. */
+  .masthead {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+    column-gap: 2.25rem;
+  }
+  .wordmark { grid-column: 1 / -1; }
+  /* The narrower the page, the taller the text runs, so the wider the art. */
+  .masthead picture {
+    grid-column: 2;
+    grid-row: 2;
+    width: clamp(22rem, calc(66rem - 73cqi), 28rem);
+    margin-top: 1.1rem;
+  }
+  .art { max-height: none; margin: 0 0 -0.9rem; }
+
+  /* The set-up text's own width decides its columns. One column holds to
+     about 80 characters a line; once there's room, it splits into two:
+     flavor | who can play, with the d8 line under it. The d8 line never
+     wraps, and its column never gets narrower than it. */
+  .masthead .intro {
+    container: intro / inline-size;
+    grid-column: 1;
+    grid-row: 2;
+    align-self: start;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 1rem;
+    margin-top: 1.1rem;
+  }
+  .masthead .intro > * { flex: 1 1 100%; max-width: 37rem; }
+  @container intro (width >= 42rem) {
+    .masthead .intro > * { flex-basis: 0; max-width: none; }
+    .masthead .rollup { white-space: nowrap; }
+  }
+}
+/* Two columns run shorter, so the art comes down to match; this is where
+   the text beside it reaches 42rem. */
+@media (58rem <= width < 70rem) {
+  @container (width >= 62.5rem) {
+    .masthead picture { width: 17.5rem; }
+  }
+}
+/* With room, the art rises beside the wordmark too, as tall as the wordmark
+   and text beside it; the wordmark and text come down a touch so they
+   aren't taller than the art. */
+@media (width >= 70rem) {
+  .wordmark { grid-column: 1; --wordmark-share: 48cqi; }
+  .masthead picture { grid-row: 1 / span 2; margin-top: 0; width: 31rem; }
+  .masthead .intro { align-self: end; margin-top: 0.6rem; }
 }

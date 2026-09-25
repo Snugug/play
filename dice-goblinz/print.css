@@ -57,15 +57,40 @@ svg.defs { position: absolute; width: 0; height: 0; }
 }
 
 /* ---------- masthead ---------- */
+/* Wordmark over the flavor text on the left, key art standing on the
+   header rule on the right. The art's width sets its height; it's picked
+   so the art's top meets the top margin while the art is exactly as tall
+   as the wordmark and flavor text beside it. */
 .masthead {
   position: relative;
   display: grid;
-  grid-template-columns: 1fr 4.2in;
-  align-items: center;
-  gap: 0.22in;
-  /* Rock Salt's tails hang well below the line box; this clears them. */
-  padding-bottom: 0.235in;
+  grid-template-columns: minmax(0, 1fr) 2.77in;
+  column-gap: 0.2in;
+  padding-bottom: 0.08in;
   margin-bottom: 0.11in;
+}
+.masthead picture {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: end;
+  /* Up into the sheet's top padding to the margin, down onto the rule. */
+  margin: -0.207in 0 -0.08in;
+}
+.art {
+  display: block;
+  width: 100%;
+  height: auto;
+  mix-blend-mode: multiply;
+}
+.intro { display: contents; }
+/* The rest of the set-up text leads the rules column. It lives in the
+   header so the screen layouts can wrap it around the art; here it's
+   placed at the top of the rules, which make room for it. */
+.setup {
+  position: absolute;
+  top: calc(100% + 0.11in);
+  left: calc(4.55in + 0.24in);
+  right: 0;
 }
 /* The rule's ink starts a hair inside its box; reach it out to the margin. */
 .masthead::after { left: -0.02in; }
@@ -85,19 +110,23 @@ svg.defs { position: absolute; width: 0; height: 0; }
   transform-origin: left bottom;
 }
 .flavor {
-  margin: 0 0 0.06in;
+  grid-column: 1;
+  /* Rock Salt's tails hang well below the line box; this clears them. */
+  margin: 0.235in 0 0;
+  /* About as wide as the wordmark over it. */
+  max-width: 6.2in;
   font-size: 8.6pt;
   font-style: italic;
   line-height: 1.26;
 }
 .needs {
-  margin: 0;
+  margin: 0 0 0.05in;
   font-size: 8.2pt;
   line-height: 1.26;
   transform: rotate(-0.35deg);
 }
 .rollup {
-  margin: 0.05in 0 0;
+  margin: 0;
   font-size: 8.9pt;
   font-weight: 700;
   transform: rotate(-0.6deg);
@@ -108,20 +137,20 @@ svg.defs { position: absolute; width: 0; height: 0; }
 /* ---------- body: reference rail | procedure ---------- */
 .body {
   display: grid;
-  grid-template-columns: 4.5in 1fr;
-  /* Row 3 is the flexible one, so row 2 ends where the tables end and the
+  /* A touch wider than the rules need, so the tables are short enough to
+     fit under the taller masthead. */
+  grid-template-columns: 4.55in 1fr;
+  /* Row 2 is the flexible one, so row 1 ends where the tables end and the
      licence line sits right under them while the rules run on beside it. */
-  grid-template-rows: auto auto 1fr;
+  grid-template-rows: auto 1fr;
   gap: 0.08in 0.24in;
   flex: 1;
   min-height: 0;
 }
-/* The set-up text sits over the procedure, in two columns, leaving the
-   masthead free for art. */
-.intro { grid-column: 2; grid-row: 1; column-count: 2; column-gap: 0.2in; }
-.rail { min-width: 0; grid-column: 1; grid-row: 1 / span 2; }
-.legal { grid-column: 1; grid-row: 3; align-self: end; }
-.proc { min-width: 0; grid-column: 2; grid-row: 2 / span 2; display: flex; flex-direction: column; }
+.rail { min-width: 0; grid-column: 1; grid-row: 1; }
+.legal { grid-column: 1; grid-row: 2; align-self: end; }
+/* The top padding is the room for the set-up text placed over it. */
+.proc { min-width: 0; grid-column: 2; grid-row: 1 / span 2; display: flex; flex-direction: column; padding-top: 0.58in; }
 
 .zone {
   position: relative;
